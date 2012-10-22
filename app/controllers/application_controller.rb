@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
 
     helper_method :current_omniuser
     #Omniauthでのログイン状況確認
+
+    private
     def current_omniuser
-        @current_omniuser ||= Omniuser.find(session[:user_id]) if session[:user_id]
+        @current_omniuser ||= Omniuser.find(session[:omniuser_id]) if session[:omniuser_id]
     end
 
 end
