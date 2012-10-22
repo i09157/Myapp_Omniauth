@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "githubでlogin","/auth/github" %>
+<p id="notice"><%=notice%></p>
+	<% if current_omniuser %>
+    <%= link_to "Sign out", signout_path  %>
+  <% else %>
+    <%= link_to "Sign in with GitHub", "/auth/github" %>
+  <% end %>
 
 <%= yield %>
 
