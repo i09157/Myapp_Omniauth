@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if omniuser
        # Omniuserモデルに:providerと:uidが見つかった場合（外部認証済み）、ログインさせる。
         session[:omniuser_id] = omniuser.id
-        redirect_to root_url, :notice => "ログインしました。"
+        redirect_to root_url, :notice => "サインインしました。"
     else
          # Omniuserモデルに:providerと:uidが無い場合（外部認証していない）、:provider,:uidを保存してから、新規登録ページへ遷移させる
          Omniuser.create_with_omniauth(auth)
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
   def destroy
     reset_session
-    redirect_to root_url, :notice => "ログアウトしました。"
+    redirect_to root_url, :notice => "サインアウトしました。"
 
   end
 end
