@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if omniuser
        user = User.find_by_omniuser_id(omniuser.id)
        if user
-　　　         session[:user_id] = omniuser.id
+           session[:user_id] = omniuser.id
             redirect_to root_url, :notice => "サインインしました。"
        else
          #②userが存在しない = Userモデルにレコードがない = Devise認証はまだ => ユーザ登録ページへ
