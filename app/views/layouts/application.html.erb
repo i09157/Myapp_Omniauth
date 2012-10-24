@@ -7,13 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p id="notice"><%=notice%></p>
-	<% if current_omniuser %>
-    <%= link_to "Sign out", signout_path  %>
-  <% else %>
-    <%= link_to "Sign in with GitHub", "/auth/github" %>
-  <% end %>
 
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+
+
+  <% if user_signed_in? %>
+		<%= current_user.email %>
+		<%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+	<% elsif current_omniuser %>
+	  <%= current_omniuser.nickname %>
+    <%= link_to "サインアウト", signout_path  %>
+	<% else %>
+		<%= link_to "サインイン", new_user_session_path %>
+		<%#= link_to "GitHubでサインイン", "/auth/github" %>
+		<%= link_to "新規登録",  welcome_path %>
+	<% end %>
 <%= yield %>
 
 </body>

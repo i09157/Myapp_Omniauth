@@ -1,7 +1,12 @@
 Myapp1::Application.routes.draw do
-  get "sessions/callback"
+  get "welcome/index"
 
-  get "home/index"
+  devise_for :users
+
+ # get "sessions/callback"
+
+  get "home/index", :as => :user_root
+  get "welcome/index", :as => :welcome
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
