@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20121023132939) do
     t.string   "nickname"
     t.string   "image"
     t.string   "token"
+    t.string   "users"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

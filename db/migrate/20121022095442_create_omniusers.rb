@@ -7,7 +7,7 @@ class CreateOmniusers < ActiveRecord::Migration
       t.string :nickname
       t.string :image
       t.string :token
-
+      t.string :users
       t.timestamps
     end
   end

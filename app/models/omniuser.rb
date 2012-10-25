@@ -1,5 +1,6 @@
 class Omniuser < ActiveRecord::Base
   #attr_accessible :image, :name, :nickname, :provider, :token, :uid
+  belongs_to :user
   def self.create_with_omniauth(auth)
     create! do |omniuser|
       omniuser.provider = auth["provider"]
